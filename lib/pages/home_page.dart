@@ -19,16 +19,17 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView( // agencement des sections du body en colonne
-        children: const <Widget>[ // sections du body
+      body: ListView(
+        // agencement des sections du body en colonne
+        children: const <Widget>[
+          // sections du body
           //... ici empilez les differentes sections du body.
           //... séparez les avec du padding
-          VideoHero(), // component affichant un Hero avec un background Video
-
+          VideoHero(),
+          // component affichant un Hero avec un background Video
         ],
       ),
-      drawer: const LeftDrawer(
-      ),
+      drawer: const LeftDrawer(),
     );
   }
 }

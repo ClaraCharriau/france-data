@@ -29,14 +29,21 @@ class MyApp extends StatelessWidget {
           titleLarge: GoogleFonts.acme(
             fontSize: 30,
             fontStyle: FontStyle.italic,
-          ),  
-          bodyMedium: GoogleFonts.merriweather(),
+            color: Colors.white,
+          ),
+          bodyLarge: GoogleFonts.merriweather(
+            fontSize: 25,
+            color: Colors.white,
+            letterSpacing: 4,
+          ),
+          bodyMedium: GoogleFonts.merriweather(
+            color: Colors.white,
+            letterSpacing: 4,
+          ),
           displaySmall: GoogleFonts.pacifico(),
-          
         ),
       ),
       home: HomePage(title: appTitle),
     );
   }
 }
-
