@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/left_drawer.dart';
 import 'package:flutter_examen1/components/video_hero.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,6 +26,8 @@ class HomePage extends StatelessWidget {
           VideoHero(), // component affichant un Hero avec un background Video
 
         ],
+      ),
+      drawer: const LeftDrawer(
       ),
     );
   }

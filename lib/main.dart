@@ -9,6 +9,8 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  final String appTitle = 'France Data';
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
           
         ),
       ),
-      home: const HomePage(title: 'France Data'),
+      home: HomePage(title: appTitle),
     );
   }
 }
