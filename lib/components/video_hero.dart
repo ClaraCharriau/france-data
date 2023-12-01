@@ -47,11 +47,11 @@ class _VideoHeroState extends State<VideoHero> {
           textAlign: TextAlign.center,
           text: TextSpan(
             text: 'France Data',
-            style: textTheme.bodyLarge,
+            style: textTheme.displayLarge,
             children: <TextSpan>[
               TextSpan(
                 text: '\n Atlas des Données de France',
-                style: textTheme.bodyMedium,
+                style: textTheme.displayMedium,
               ),
             ],
           ),

@@ -22,25 +22,27 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
         textTheme: TextTheme(
-          displayLarge: const TextStyle(
-            fontSize: 72,
-            fontWeight: FontWeight.bold,
+          displayLarge: GoogleFonts.merriweather(
+            fontSize: 20,
+            color: Colors.white,
+            letterSpacing: 4,
+          ),
+          displayMedium: GoogleFonts.merriweather(
+            fontSize: 12,
+            color: Colors.white,
+            letterSpacing: 4,
           ),
           titleLarge: GoogleFonts.acme(
             fontSize: 30,
             fontStyle: FontStyle.italic,
             color: Colors.white,
           ),
-          bodyLarge: GoogleFonts.merriweather(
-            fontSize: 25,
+          headlineSmall: GoogleFonts.roboto(
             color: Colors.white,
-            letterSpacing: 4,
           ),
-          bodyMedium: GoogleFonts.merriweather(
+          bodySmall: GoogleFonts.roboto(
             color: Colors.white,
-            letterSpacing: 4,
           ),
-          displaySmall: GoogleFonts.pacifico(),
         ),
       ),
       home: HomePage(title: appTitle),

@@ -12,52 +12,68 @@ class _LeftDrawerState extends State<LeftDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
+    final textTheme = Theme.of(context).textTheme;
+    const String backgroundPath = 'web/assets/img/bkgnight.jpg';
 
     return Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left:16.0, top: 16.0, bottom: 5.0),
-              child: Text(
-                'France Data',
-                style: textTheme.headlineSmall,
+      child: Stack(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                colorFilter: ColorFilter.mode(
+                    Colors.white.withOpacity(0.2), BlendMode.dstATop),
+                image: const AssetImage(backgroundPath),
+                fit: BoxFit.cover,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0, bottom: 100.0),
-              child: Text(
-                'Atlas de Données Françaises',
-                style: textTheme.bodySmall,
+          ),
+          ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(backgroundPath),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: RichText(
+                  text: TextSpan(
+                    text: 'France Data',
+                    style: textTheme.headlineSmall,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: '\n Atlas de Données Françaises',
+                        style: textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            const Divider(
-              height: 1,
-              thickness: 1,
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Accueil'),
-              selected: _selectedDestination == 0,
-              onTap: () => selectDestination(0),
-            ),
-            ListTile(
-              leading: const Icon(Icons.map),
-              title: const Text('Régions'),
-              selected: _selectedDestination == 1,
-              onTap: () => selectDestination(1),
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Paramètres'),
-              selected: _selectedDestination == 2,
-              onTap: () => selectDestination(2),
-            ),
-          ],
-        ),
-      );
+              ListTile(
+                leading: const Icon(Icons.home),
+                title: const Text('Accueil'),
+                selected: _selectedDestination == 0,
+                onTap: () => selectDestination(0),
+              ),
+              ListTile(
+                leading: const Icon(Icons.map),
+                title: const Text('Régions'),
+                selected: _selectedDestination == 1,
+                onTap: () => selectDestination(1),
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text('Paramètres'),
+                selected: _selectedDestination == 2,
+                onTap: () => selectDestination(2),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   void selectDestination(int index) {
