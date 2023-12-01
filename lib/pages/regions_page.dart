@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/left_drawer.dart';
 
 class RegionPage extends StatelessWidget {
   const RegionPage({super.key, required this.title});
@@ -13,6 +14,7 @@ class RegionPage extends StatelessWidget {
         title: Text(title),
       ),
       body: Container(),
+      drawer: const LeftDrawer(),
     );
   }
 }

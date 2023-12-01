@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/pages/home_page.dart';
+import 'package:flutter_examen1/pages/regions_page.dart';
 
 class LeftDrawer extends StatefulWidget {
   const LeftDrawer({super.key});
@@ -44,7 +46,7 @@ class _LeftDrawerState extends State<LeftDrawer> {
                     style: textTheme.headlineSmall,
                     children: <TextSpan>[
                       TextSpan(
-                        text: '\n Atlas de Données Françaises',
+                        text: '\nAtlas de Données Françaises',
                         style: textTheme.bodySmall,
                       ),
                     ],
@@ -80,5 +82,28 @@ class _LeftDrawerState extends State<LeftDrawer> {
     setState(() {
       _selectedDestination = index;
     });
+
+    if (getPage(index) == null) {
+      Navigator.pop(context);
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => getPage(index),
+      ),
+    );
+  }
+
+  getPage(int index) {
+    switch (index) {
+      case 0:
+        return const HomePage(title: "France Data");
+      case 1:
+        return const RegionPage(title: "Recherche Par Region");
+      default:
+        return null;
+    }
   }
 }
