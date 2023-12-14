@@ -1,3 +1,3 @@
 # France Data
 
-A mobile app to provide france data.
+A mobile app to provide France data.
