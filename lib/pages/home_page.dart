@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/config.dart';
 import 'package:flutter_examen1/components/search_button.dart';
 import 'package:flutter_examen1/components/section.dart';
 import 'package:flutter_examen1/components/left_drawer.dart';
@@ -7,9 +8,9 @@ import 'package:flutter_examen1/components/video_hero.dart';
 const String backgroundPath = 'web/assets/img/bkgnight.jpg';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key, required this.title});
+  const HomePage({super.key, required this.config});
 
-  final String title;
+  final Config config;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         title: Text(
-          title,
+          config.get('hero-main-caption.title'),
           style: const TextStyle(
             color: Colors.white,
           ),
@@ -40,13 +41,13 @@ class HomePage extends StatelessWidget {
         ),
         child: ListView(
           children: <Widget>[
-            const VideoHero(),
+            VideoHero(config: config),
             const Section(
               sectionTitle: "I. Nos Régions",
               content:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             ),
-            const SearchButton(),
+            SearchButton(config: config),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
@@ -63,7 +64,8 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      drawer: const LeftDrawer(),
+      drawer: LeftDrawer(
+          config: config, currentPage: config.get('page-name.regions')),
     );
   }
 }

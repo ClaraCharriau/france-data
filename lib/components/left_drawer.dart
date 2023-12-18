@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/config.dart';
 import 'package:flutter_examen1/pages/home_page.dart';
 import 'package:flutter_examen1/pages/regions_page.dart';
 
 class LeftDrawer extends StatelessWidget {
-  const LeftDrawer({super.key});
+  const LeftDrawer({super.key, required this.config, required this.currentPage});
+  final Config config;
+  final String currentPage;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +38,11 @@ class LeftDrawer extends StatelessWidget {
                 ),
                 child: RichText(
                   text: TextSpan(
-                    text: 'France Data',
+                    text: config.get('hero-main-caption.title'),
                     style: textTheme.headlineSmall,
                     children: <TextSpan>[
                       TextSpan(
-                        text: '\nAtlas de Données Françaises',
+                        text: '\n${config.get('hero-main-caption.subtitle')}',
                         style: textTheme.bodySmall,
                       ),
                     ],
@@ -54,7 +57,7 @@ class LeftDrawer extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          const HomePage(title: "France Data"),
+                          HomePage(config: config,),
                     ),
                   );
                 },
@@ -67,7 +70,7 @@ class LeftDrawer extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          const RegionPage(title: "Recherche par Region"),
+                          RegionPage(config: config,),
                     ),
                   );
                 },

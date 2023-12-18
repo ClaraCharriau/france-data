@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/config.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoHero extends StatefulWidget {
-  const VideoHero({super.key});
+  const VideoHero({super.key, required this.config});
+
+  final Config config;
 
   @override
   State<VideoHero> createState() => _VideoHeroState();

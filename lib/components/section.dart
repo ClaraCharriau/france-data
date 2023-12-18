@@ -11,7 +11,6 @@ class Section extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-
         // Section title
         Container(
           width: double.infinity,

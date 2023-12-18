@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/config.dart';
 import 'package:flutter_examen1/pages/regions_page.dart';
 
 class SearchButton extends StatelessWidget {
-  const SearchButton({super.key});
+  const SearchButton({super.key, required this.config});
+
+  final Config config;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +17,7 @@ class SearchButton extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) =>
-                    const RegionPage(title: "Recherche par Region"),
+                builder: (context) => RegionPage(config: config),
               ),
             );
           },

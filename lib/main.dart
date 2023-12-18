@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 import "package:flutter_examen1/pages/home_page.dart";
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final config = Config.getInstance();
+  await config.load();
+  runApp(MyApp(config: config));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.config});
 
-  final String appTitle = 'France Data';
+  final Config config;
 
   // This widget is the root of your application.
   @override
@@ -45,7 +49,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: HomePage(title: appTitle),
+      home: HomePage(config: config),
     );
   }
 }
